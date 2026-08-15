@@ -1,10 +1,11 @@
+<!-- python3 -m http.server 8080 & sleep 1 && xdg-open http://localhost:8080/index1.html -->
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta name="description"
         content="Joint-Space Empowerment for Dexterous Coordination in Tendon-Driven Hands.">
-  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="keywords" content="Joint-Space Empowerment, Dexterity, Manipulation, Robotics, Synergies">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Joint-Space Empowerment for Dexterous Coordination in Tendon-Driven Hands</title>
 
@@ -107,7 +108,7 @@
               <a href="https://vikashplus.github.io/">Vikash Kumar</a><sup>2</sup>,
             </span>
             <span class="author-block">
-              <a href="https://www.gatsby.ucl.ac.uk/~maneesh/">Maneesh Sahani</a><sup>1</sup>,
+              <a href="https://www.gatsby.ucl.ac.uk/~maneesh/">Maneesh Sahani</a><sup>1</sup>
             </span>
           </div>
 
@@ -126,6 +127,15 @@
                       <i class="fas fa-file-pdf"></i>
                   </span>
                   <span>ICML Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://openreview.net/forum?id=bEgDZe9ff7"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>RSS Workshop Paper</span>
                 </a>
               </span>
               <!-- Code Link. -->
@@ -148,15 +158,6 @@
                   <span>Model Weights</span>
                   </a>
               </span>
-              <span class="link-block">
-                <a href="https://openreview.net/forum?id=bEgDZe9ff7"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>RSS Workshop Paper</span>
-                </a>
-              </span>
             </div>
 
           </div>
@@ -176,45 +177,40 @@
          SAC:    ./static/videos/sac_env{1-4}.mp4
          JoSEPi: ./static/videos/josepi_env{1-4}.mp4     -->
 
-    <!-- JoSEPi row: label in left 1fr, videos centered, right 1fr keeps symmetry -->
-    <div style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; margin-bottom: 2rem;">
-      <div style="text-align: right; padding-right: 1.25rem; font-weight: 600; font-size: 1.25rem; color: #3273dc;">JoSEPi<br>(Ours)<br></div>
-      <div style="display: flex; gap: 0.4rem;">
-        <video autoplay muted loop playsinline style="width: 170px; border-radius:6px; display:block;">
-          <source src="./static/videos/A1.mp4" type="video/mp4">
-        </video>
-        <video autoplay muted loop playsinline style="width: 170px; border-radius:6px; display:block;">
-          <source src="./static/videos/A1.mp4" type="video/mp4">
-        </video>
-        <video autoplay muted loop playsinline style="width: 170px; border-radius:6px; display:block;">
-          <source src="./static/videos/A1.mp4" type="video/mp4">
-        </video>
-        <video autoplay muted loop playsinline style="width: 170px; border-radius:6px; display:block;">
-          <source src="./static/videos/A1.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div></div>
+    <div style="display: flex; justify-content: center; gap: 0.4rem; margin-bottom: 2rem;">
+      <video autoplay muted loop playsinline style="width: 170px; border-radius:6px; display:block;">
+        <source src="./static/videos/rollout_myobaoding.mp4" type="video/mp4">
+      </video>
+      <video autoplay muted loop playsinline style="width: 170px; border-radius:6px; display:block;">
+        <source src="./static/videos/rollout_myodie.mp4" type="video/mp4">
+      </video>
+      <video autoplay muted loop playsinline style="width: 170px; border-radius:6px; display:block;">
+        <source src="./static/videos/rollout_myokey.mp4" type="video/mp4">
+      </video>
+      <video autoplay muted loop playsinline style="width: 170px; border-radius:6px; display:block;">
+        <source src="./static/videos/rollout_myopen.mp4" type="video/mp4">
+      </video>
     </div>
 
     <!-- SAC row -->
-    <div style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;">
+    <!-- <div style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;">
       <div style="text-align: right; padding-right: 1.25rem; font-weight: 600; font-size: 1.25rem;">SAC</div>
       <div style="display: flex; gap: 0.4rem;">
         <video autoplay muted loop playsinline style="width: 170px; border-radius:6px; display:block;">
-          <source src="./static/videos/A1.mp4" type="video/mp4">
+          <source src="./static/videos/rollout_myobaoding.mp4" type="video/mp4">
         </video>
         <video autoplay muted loop playsinline style="width: 170px; border-radius:6px; display:block;">
-          <source src="./static/videos/A1.mp4" type="video/mp4">
+          <source src="./static/videos/rollout_myodie.mp4" type="video/mp4">
         </video>
         <video autoplay muted loop playsinline style="width: 170px; border-radius:6px; display:block;">
-          <source src="./static/videos/A1.mp4" type="video/mp4">
+          <source src="./static/videos/rollout_myokey.mp4" type="video/mp4">
         </video>
         <video autoplay muted loop playsinline style="width: 170px; border-radius:6px; display:block;">
-          <source src="./static/videos/A1.mp4" type="video/mp4">
+          <source src="./static/videos/rollout_myopen.mp4" type="video/mp4">
         </video>
       </div>
       <div></div>
-    </div>
+    </div> -->
   </div>
 </section>
 
@@ -248,16 +244,16 @@
       <div style="text-align: right; padding-right: 1.25rem; font-weight: 600; font-size: 1.25rem; color: #3273dc;">JoSEPi<br>(Ours)<br></div>
       <div style="display: flex; gap: 0.4rem;">
         <video autoplay muted loop playsinline style="width: 170px; border-radius:6px; display:block;">
-          <source src="./static/videos/A1.mp4" type="video/mp4">
+          <source src="./static/videos/rollout_baoding.mp4" type="video/mp4">
         </video>
         <video autoplay muted loop playsinline style="width: 170px; border-radius:6px; display:block;">
-          <source src="./static/videos/A1.mp4" type="video/mp4">
+          <source src="./static/videos/rollout_die.mp4" type="video/mp4">
         </video>
         <video autoplay muted loop playsinline style="width: 170px; border-radius:6px; display:block;">
-          <source src="./static/videos/A1.mp4" type="video/mp4">
+          <source src="./static/videos/rollout_key.mp4" type="video/mp4">
         </video>
         <video autoplay muted loop playsinline style="width: 170px; border-radius:6px; display:block;">
-          <source src="./static/videos/A1.mp4" type="video/mp4">
+          <source src="./static/videos/rollout_pen.mp4" type="video/mp4">
         </video>
       </div>
       <div></div>
@@ -268,16 +264,16 @@
       <div style="text-align: right; padding-right: 1.25rem; font-weight: 600; font-size: 1.25rem;">SAC</div>
       <div style="display: flex; gap: 0.4rem;">
         <video autoplay muted loop playsinline style="width: 170px; border-radius:6px; display:block;">
-          <source src="./static/videos/A1.mp4" type="video/mp4">
+          <source src="./static/videos/rollout_baoding.mp4" type="video/mp4">
         </video>
         <video autoplay muted loop playsinline style="width: 170px; border-radius:6px; display:block;">
-          <source src="./static/videos/A1.mp4" type="video/mp4">
+          <source src="./static/videos/rollout_die.mp4" type="video/mp4">
         </video>
         <video autoplay muted loop playsinline style="width: 170px; border-radius:6px; display:block;">
-          <source src="./static/videos/A1.mp4" type="video/mp4">
+          <source src="./static/videos/rollout_key.mp4" type="video/mp4">
         </video>
         <video autoplay muted loop playsinline style="width: 170px; border-radius:6px; display:block;">
-          <source src="./static/videos/A1.mp4" type="video/mp4">
+          <source src="./static/videos/rollout_pen.mp4" type="video/mp4">
         </video>
       </div>
       <div></div>
