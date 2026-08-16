@@ -1,4 +1,4 @@
-<!-- python3 -m http.server 8080 & sleep 1 && xdg-open http://localhost:8080/index1.html -->
+<!-- python3 -m http.server 8080 & sleep 1 && open http://localhost:8080/index1.html -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -170,7 +170,7 @@
 <section class="section" style="padding: 1rem 1.5rem 1rem 1.5rem;">
   <div class="container is-max-desktop">
 
-    <h2 class="title is-3 has-text-centered">MyoHand</h2>
+    <!-- <h2 class="title is-3 has-text-centered">MyoHand</h2> -->
     <!-- <p class="subtitle has-text-centered" style="margin-bottom: 1.25rem;">SAC vs. JoSEPi (Ours) across four environments</p> -->
 
     <!-- Replace src paths below with the real videos, e.g.:
@@ -178,17 +178,17 @@
          JoSEPi: ./static/videos/josepi_env{1-4}.mp4     -->
 
     <div style="display: flex; justify-content: center; gap: 0.4rem; margin-bottom: 2rem;">
-      <video autoplay muted loop playsinline style="width: 170px; border-radius:6px; display:block;">
-        <source src="./static/videos/rollout_myobaoding.mp4" type="video/mp4">
+      <video autoplay muted loop playsinline style="width: 315px; border-radius:6px; display:block;">
+        <source src="./static/videos/CustomMyoChallengeBaodingP1-v1_JoSEPi_hero_seed0_top10pct.mp4" type="video/mp4">
+      </video>
+      <!-- <video autoplay muted loop playsinline style="width: 170px; border-radius:6px; display:block;">
+        <source src="./static/videos/CustomMyoChallengeDieReorientP2-v0_JoSEPi_1each_q3_mean0.610.mp4" type="video/mp4">
       </video>
       <video autoplay muted loop playsinline style="width: 170px; border-radius:6px; display:block;">
-        <source src="./static/videos/rollout_myodie.mp4" type="video/mp4">
-      </video>
-      <video autoplay muted loop playsinline style="width: 170px; border-radius:6px; display:block;">
-        <source src="./static/videos/rollout_myokey.mp4" type="video/mp4">
-      </video>
-      <video autoplay muted loop playsinline style="width: 170px; border-radius:6px; display:block;">
-        <source src="./static/videos/rollout_myopen.mp4" type="video/mp4">
+        <source src="./static/videos/myoHandKeyTurnRandom-v0_JoSEPi_1each_q3_mean0.808.mp4" type="video/mp4">
+      </video> -->
+      <video autoplay muted loop playsinline style="width: 315px; border-radius:6px; display:block;">
+        <source src="./static/videos/CustomAdroitPenTwirlRandom-v0_JoSEPi_hero_ep3-6-13-43-48.mp4" type="video/mp4">
       </video>
     </div>
 
@@ -214,7 +214,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" style="padding: 0rem 1.5rem 1rem 1.5rem;">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
@@ -232,6 +232,40 @@
 <section class="section" style="padding: 1rem 1.5rem 1rem 1.5rem;">
   <div class="container is-max-desktop">
 
+    <div style="display: flex; justify-content: center; gap: 0.4rem; margin-bottom: 2rem;">
+      <video autoplay muted loop playsinline style="width: 1000px; border-radius:6px; display:block;">
+        <source src="./static/videos/compositional_policy_animation.mp4" type="video/mp4">
+      </video>
+    </div>
+    
+  </div>
+</section>
+
+<section class="section" style="padding: 1rem 1.5rem 1rem 1.5rem;">
+  <div class="container is-max-desktop">
+
+    <h2 class="title is-3 has-text-centered">MyoHand</h2>
+    <!-- <p class="subtitle has-text-centered" style="margin-bottom: 1.25rem;">SAC vs. JoSEPi (Ours) across four environments</p> -->
+
+    <!-- Replace src paths below with the real videos, e.g.:
+         SAC:    ./static/videos/sac_env{1-4}.mp4
+         JoSEPi: ./static/videos/josepi_env{1-4}.mp4     -->
+
+    <div style="display: flex; justify-content: center; gap: 0.4rem; margin-bottom: 2rem;">
+      <video autoplay muted loop playsinline style="width: 250px; border-radius:6px; display:block;">
+        <source src="./static/videos/CustomMyoChallengeBaodingP1-v1_JoSEPi_1each_q3_mean0.859.mp4" type="video/mp4">
+      </video>
+      <video autoplay muted loop playsinline style="width: 250px; border-radius:6px; display:block;">
+        <source src="./static/videos/CustomMyoChallengeDieReorientP2-v0_JoSEPi_1each_q3_mean0.610.mp4" type="video/mp4">
+      </video>
+      <video autoplay muted loop playsinline style="width: 250px; border-radius:6px; display:block;">
+        <source src="./static/videos/myoHandKeyTurnRandom-v0_JoSEPi_1each_q3_mean0.808.mp4" type="video/mp4">
+      </video>
+      <video autoplay muted loop playsinline style="width: 250px; border-radius:6px; display:block;">
+        <source src="./static/videos/myoHandPenTwirlRandom-v0_JoSEPi_1each_q3_mean0.766.mp4" type="video/mp4">
+      </video>
+    </div>
+
     <h2 class="title is-3 has-text-centered">Adroit</h2>
     <!-- <p class="subtitle has-text-centered" style="margin-bottom: 1.25rem;">SAC vs. JoSEPi (Ours) across four environments</p> -->
 
@@ -239,8 +273,23 @@
          SAC:    ./static/videos/sac_env{1-4}.mp4
          JoSEPi: ./static/videos/josepi_env{1-4}.mp4     -->
 
+        <div style="display: flex; justify-content: center; gap: 0.4rem; margin-bottom: 2rem;">
+      <video autoplay muted loop playsinline style="width: 250px; border-radius:6px; display:block;">
+        <source src="./static/videos/CustomAdroitBaodingP1-v1_JoSEPi_1each_q3_mean0.945.mp4" type="video/mp4">
+      </video>
+      <video autoplay muted loop playsinline style="width: 250px; border-radius:6px; display:block;">
+        <source src="./static/videos/CustomAdroitDieReorientP2-v0_JoSEPi_1each_q3_mean0.814.mp4" type="video/mp4">
+      </video>
+      <video autoplay muted loop playsinline style="width: 250px; border-radius:6px; display:block;">
+        <source src="./static/videos/CustomAdroitKeyTurnRandom-v0_JoSEPi_1each_q3_mean0.576.mp4" type="video/mp4">
+      </video>
+      <video autoplay muted loop playsinline style="width: 250px; border-radius:6px; display:block;">
+        <source src="./static/videos/CustomAdroitPenTwirlRandom-v0_JoSEPi_1each_q3_mean0.663.mp4" type="video/mp4">
+      </video>
+    </div>
+
     <!-- JoSEPi row: label in left 1fr, videos centered, right 1fr keeps symmetry -->
-    <div style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; margin-bottom: 2rem;">
+    <!-- <div style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; margin-bottom: 2rem;">
       <div style="text-align: right; padding-right: 1.25rem; font-weight: 600; font-size: 1.25rem; color: #3273dc;">JoSEPi<br>(Ours)<br></div>
       <div style="display: flex; gap: 0.4rem;">
         <video autoplay muted loop playsinline style="width: 170px; border-radius:6px; display:block;">
@@ -257,10 +306,10 @@
         </video>
       </div>
       <div></div>
-    </div>
+    </div> -->
 
     <!-- SAC row -->
-    <div style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;">
+    <!-- <div style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;">
       <div style="text-align: right; padding-right: 1.25rem; font-weight: 600; font-size: 1.25rem;">SAC</div>
       <div style="display: flex; gap: 0.4rem;">
         <video autoplay muted loop playsinline style="width: 170px; border-radius:6px; display:block;">
@@ -277,30 +326,30 @@
         </video>
       </div>
       <div></div>
-    </div>
+    </div> -->
 
     
     <!-- Option D: title then button below -->
     <h2 class="title is-3 has-text-centered" style="margin-top: 3rem; margin-bottom: 1.25rem;">
-      NeurIPS MyoChallenge: 1st Place
+      NeurIPS Competition: 1st Place
     </h2>
     <div class="has-text-centered" style="margin-bottom: 1.25rem;">
       <a href="https://openreview.net/pdf?id=1dSLbhErNv"
          class="external-link button is-normal is-rounded is-dark">
         <span class="icon"><i class="fas fa-file-pdf"></i></span>
-        <span>Paper</span>
+        <span>NeurIPS Paper</span>
       </a>
     </div>
 
     <div class="content has-text-justified" style="max-width: 700px; margin: 0 auto 2.5rem;">
       <p>
-        We used our optimal precoding framework to achieve first place in the Manipulation Track of <a href="https://neurips.cc/Conferences/2024/CompetitionTrack">NeurIPS 2024 MyoChallenge</a>.
-        The challenge involved transferring objects between pillars by coordinating a realistic arm with 63 muscles and a prosthetic robotic arm with 17 DoFs, 
-        demonstrating that the method scales to higher-dimensional systems.
+        Our team, Muscle Heads, achieved first place in the Manipulation Track of <a href="https://neurips.cc/Conferences/2024/CompetitionTrack">NeurIPS 2024 MyoChallenge</a>.
+        The challenge involved controlling a realistic arm with 63 muscles and a prosthetic arm with 17 DoFs to transfer objects between pillars.
+        We used our empowerment-based objective to learn a low-dimensional action manifold, demonstrating that the method scales to higher-dimensional systems.
       </p>
     </div>
     <div style="display: flex; justify-content: center;">
-      <img src="./static/videos/myochallenge24.gif" style="border-radius: 6px; max-width: 50%;">
+      <img src="./static/videos/myochallenge24.gif" style="border-radius: 6px; max-width: 40%;">
     </div>
 
   </div>
