@@ -177,7 +177,7 @@
          SAC:    ./static/videos/sac_env{1-4}.mp4
          JoSEPi: ./static/videos/josepi_env{1-4}.mp4     -->
 
-    <div style="display: flex; justify-content: center; gap: 0.4rem; margin-bottom: 2rem;">
+    <div style="display: flex; justify-content: center; gap: 0.4rem; margin-bottom: 0.75rem;">
       <video autoplay muted loop playsinline style="width: 315px; border-radius:6px; display:block;">
         <source src="./static/videos/CustomMyoChallengeBaodingP1-v1_JoSEPi_hero_seed0_top10pct.mp4" type="video/mp4">
       </video>
@@ -191,6 +191,9 @@
         <source src="./static/videos/CustomAdroitPenTwirlRandom-v0_JoSEPi_hero_ep3-6-13-43-48.mp4" type="video/mp4">
       </video>
     </div>
+    <!-- <p class="has-text-centered" style="max-width: 640px; margin: 0 auto 2rem; color: #555; font-size: 0.95rem;">
+      Policies trained with <strong>JoSEPi</strong> coordinate the MyoHand's 39 muscle-tendon units (left) and the Adroit hand's 46 tendons (right) through a single learned, low-dimensional action manifold.
+    </p> -->
 
     <!-- SAC row -->
     <!-- <div style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;">
@@ -214,14 +217,14 @@
   </div>
 </section>
 
-<section class="section" style="padding: 0rem 1.5rem 1rem 1.5rem;">
+<section class="section" style="padding: 2rem 1.5rem 2.5rem 1.5rem; background-color: #f5f5f5;">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Searching for effective policies is notoriously challenging in overactuated tendon-driven systems, where each joint is actuated by many muscles or motorized cables. Although this redundancy complicates naive policy search, it also implies that effective control can be captured by a low-dimensional action manifold. To identify such a manifold, we introduce Joint-Space Empowerment (JoSE), a novel information-theoretic objective that quantifies how much control an agent has over its mechanical degrees-of-freedom. We frame manifold discovery as an optimal precoding problem—where a state-dependent precoder maps low-dimensional latent actions to high-dimensional actions—and derive the optimal precoder in closed form under learned control-affine Gaussian dynamics. On both a musculoskeletal hand model and a tendon-driven robotic hand, we show that policies trained on this manifold achieve significantly enhanced dexterity, sample efficiency, and improved generalization. More generally, these results present optimal precoding as a general information-theoretic paradigm for coordinating high-dimensional actuators to control low-dimensional features.
+            Searching for effective policies is notoriously challenging in overactuated tendon-driven systems, where each joint is actuated by many muscles or motorized cables. Although this redundancy complicates naive policy search, it also implies that effective control can be captured by a low-dimensional action manifold. To identify such a manifold, we introduce Joint-Space Empowerment (JoSE), a novel information-theoretic objective that quantifies how much control an agent has over its mechanical degrees of freedom. We frame manifold discovery as an optimal precoding problem—where a state-dependent precoder maps low-dimensional latent actions to high-dimensional actions—and derive its closed-form solution under learned control-affine Gaussian dynamics. Across both a musculoskeletal hand model and a tendon-driven robotic hand, we show that policies trained on this manifold achieve significantly enhanced dexterity, sample efficiency, and improved generalization. More broadly, these results present optimal precoding as a general information-theoretic paradigm for coordinating high-dimensional actuators to control low-dimensional features. 
           </p>
         </div>
       </div>
@@ -232,10 +235,134 @@
 <section class="section" style="padding: 1rem 1.5rem 1rem 1.5rem;">
   <div class="container is-max-desktop">
 
-    <div style="display: flex; justify-content: center; gap: 0.4rem; margin-bottom: 2rem;">
-      <video autoplay muted loop playsinline style="width: 1000px; border-radius:6px; display:block;">
-        <source src="./static/videos/compositional_policy_animation.mp4" type="video/mp4">
-      </video>
+    <h2 class="title is-3 has-text-centered">Joint-Space Empowerment</h2>
+
+    <div class="content has-text-justified" style="max-width: 760px; margin: 0 auto 1.75rem;">
+      <p>
+        In overactuated tendon-driven hands—those with more actuators (muscles or motors) than degrees of freedom—many actions (actuator commands) produce the same joint motion.
+        <!-- As a result, effective control only requires searching over a low-dimensional manifold of actions that produce behaviorally distinct joint motions. -->
+        As a result, a low-dimensional action manifold capable of realizing all possible joint motions is expected to exist.
+        We aim to discover this manifold.
+        To do so, we parameterize a manifold as a state-dependent precoder that maps a low-dimensional latent action into a high-dimensional action and formalize manifold discovery as an optimal precoding problem.
+        <!-- , which drives the system dynamics and is decoded into the next joint velocities. -->
+        <!-- We formalize discovery of this manifold as an <em>optimal precoding problem</em>: a state-dependent precoder encodes a low-dimensional latent action into a high-dimensional action, which drives the system dynamics and is decoded into the next joint velocities. -->
+      </p>
+    </div>
+
+    <!-- <div class="content has-text-justified" style="max-width: 760px; margin: 0 auto 1.75rem;">
+      <p> -->
+        <!-- In the optimal precoding framework, motor coordination is
+        viewed as a communication problem involving a sender, a
+        noisy communication channel, and a receiver.
+        The noisy communication channel is defined by the sequential composition of
+        the precoder, state transition kernel and joint-space decoder.
+        The sender transmits a latent action
+        over the channel, which is received at the next time step as
+        the next joint velocities.  -->
+        <!-- The transmitted signal zt corresponds to a
+        latent action, and the received signal yt+1 corresponds to
+        the next joint velocities. -->
+<!-- We formalize our goal as an optimal precoding problem.
+Concretely, we introduce a latent action space Z and a statedependent
+precoder gθ : Z × S → A, parameterized by
+θ, that maps a low-dimensional latent action zt ∈ Z to a
+high-dimensional action at ∈ A. Actions produced by the
+precoder lie on a manifold Mθ(st) ≜ {gθ(zt, st) : zt ∈
+Z} ⊆ A (Figure 1b). We also introduce a joint-space decoder
+h : S → Y that deterministically maps the full system
+state to the controlled variable yt ∈ Y, corresponding to the
+joint angular velocities.
+In the optimal precoding framework, motor coordination is
+viewed as a communication problem involving a sender, a
+noisy communication channel, and a receiver (Figure 1c).
+At time t in state st, the sender transmits a source signal zt
+over the channel, which is received at the next time step as
+the value yt+1. The transmitted signal zt corresponds to a
+latent action, and the received signal yt+1 corresponds to
+the next joint velocities. The noisy communication channel
+pθ(yt+1|zt, st) is defined by the sequential composition of
+the precoder, transition kernel and decoder. -->
+      <!-- </p>
+    </div> -->
+
+    <div style="display: flex; justify-content: center; margin-bottom: 0.5rem;">
+      <!-- <img src="./static/images/Figure1_final.png" style="border-radius: 6px; max-width: 100%; width: 850px;"> -->
+       <img src="./static/images/precoding_channel.png" style="border-radius: 6px; max-width: 100%; width: 770px;">
+    </div>
+    <p style="max-width: 760px; margin: 0 auto 2.5rem; color: #777; font-size: 0.9rem; text-align: justify;">
+      In the optimal precoding framework, motor coordination is viewed as a communication problem involving a sender, a noisy communication channel, and a receiver.
+      The noisy communication channel is defined by the sequential composition of the precoder, the state transition probabilities and a joint-space decoder that reads out joint velocities from the full state.
+      At each time step, the sender transmits a latent action over the channel, which is received at the next time step as the next joint velocities. 
+      The communication channel is adaptable as the precoder has learnable parameters &theta;.
+    </p>
+
+    <!-- <p> -->
+    <!-- </p> -->
+
+    <div style="display: flex; justify-content: center; margin-bottom: 2.5rem;">
+      <div style="background:#f7f8fa; border:1px solid #e5e5e5; border-radius:12px; padding: 1.5rem 2.5rem; text-align:center; max-width: 90%;">
+        <p style="font-weight: 600; margin-bottom: 1rem; color: #333;">Definition 1 (Joint-Space Empowerment)</p>
+        <img src="./static/images/empowerment_mathematical_defintion.png" style="max-width: 290px; width: 100%;">
+        <p class="has-text-justified" style="margin-top: 1.25rem; color: #555; font-size: 0.95rem; max-width: 682px;">
+          We introduce a novel objective that quantifies how much control an agent has over its mechanical degrees of freedom: Joint-Space Empowerment (JoSE) (Definition 1).
+          Formally, JoSE is the largest mutual information, over all distributions on latent actions, between the latent action and the next joint velocities in a given state (i..e, the capacity of the communication channel).
+          The mutual information is high when an agent can reach a wide diversity of next joint velocities in a reliable manner.
+        </p>
+      </div>
+    </div>
+
+    <div class="content has-text-justified" style="max-width: 760px; margin: 0 auto 1.75rem;">
+      <p>
+        Our goal is to learn the action manifold that maximizes JoSE.
+        Intuitively, if multiple actions produce the same joint motion on average, 
+        <!-- the JoSE-optimal manifold  -->
+        JoSE selects the one that achieves this outcome most reliably (i.e. with the least variance due to dynamics noise).
+      </p>
+    </div>
+
+    <!-- ===== COMPARISON SANDBOX: 4 candidate styles, remove all but the chosen one ===== -->
+
+    <p style="text-align:center; font-size:0.75rem; letter-spacing:0.05em; text-transform:uppercase; color:#aaa; margin: 2rem 0 0.5rem;"></p>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2.5rem; max-width: 760px; margin: 0 auto 1.75rem;">
+      <div style="flex: 1 1 320px; border-top: 2px solid #3273dc; padding-top: 0.75rem;">
+        <p style="font-weight:600; color:#333; margin-bottom:0.35rem;">Task-Agnostic Action Manifolds</p>
+        <p style="color:#555; font-size:0.95rem; text-align:justify; margin:0;">JoSE-optimized manifolds are task-agnostic, as JoSE is fully specified by the precoder, system dynamics and joint-space decoder, with no dependence on task knowledge or rewards.</p>
+      </div>
+      <div style="flex: 1 1 320px; border-top: 2px solid #3273dc; padding-top: 0.75rem;">
+        <p style="font-weight:600; color:#333; margin-bottom:0.35rem;">Closed-Form Solution</p>
+        <p style="color:#555; font-size:0.95rem; text-align:justify; margin:0;">Under a control-affine Gaussian model of tendon-driven dynamics, we derive the optimal manifold (a state-dependent linear subspace) in closed form.</p>
+      </div>
+    </div>
+
+    <!-- ===== END COMPARISON SANDBOX ===== -->
+
+  </div>
+</section>
+
+<section class="section" style="padding: 1rem 1.5rem 1rem 1.5rem;">
+  <div class="container is-max-desktop">
+
+    <h2 class="title is-3 has-text-centered">Compositional Manifold Policies</h2>
+
+    <div class="content has-text-justified" style="max-width: 760px; margin: 0 auto 1.75rem;">
+      <p>
+        JoSE offers the potential for sample efficient policy search by confining action exploration to a low-dimensional manifold.
+        <!-- By eliminating redundant actions, JoSE reduces the effective dimensionality of the action space. -->
+        <!-- JoSE confines search to low-dimensional action manifold, thereby guiding exploration. -->
+        <!-- JoSE provides an objective for optimizing a task-agnostic action manifold, but not yet a policy. -->
+        To take advantage of this, we learn policies supported on the manifold.
+        <!-- compose the task-agnostic manifold with a task-specific base distribution over latent actions: -->
+        <!-- An action is sampled from the policy by drawing a latent action from the base distribution and pushing it forward through the precoder onto the manifold. -->
+        <!-- Because the underlying dynamics model is uncertain, so is the manifold &mdash; JoSEPi maintains this uncertainty and exploits it to drive exploration during training. -->
+      </p>
+    </div>
+
+    <div style="display: flex; justify-content: center; margin-bottom: 2rem;">
+      <div style="display: inline-block; background: white; border: 3px solid white;; border-radius:14px; padding: 20px 30px;">
+        <video autoplay muted loop playsinline controls style="width: 700px; display:block;">
+          <source src="./static/videos/compositional_policy_animation.mp4" type="video/mp4">
+        </video>
+      </div>
     </div>
     
   </div>
@@ -244,48 +371,79 @@
 <section class="section" style="padding: 1rem 1.5rem 1rem 1.5rem;">
   <div class="container is-max-desktop">
 
-    <h2 class="title is-3 has-text-centered">MyoHand</h2>
-    <!-- <p class="subtitle has-text-centered" style="margin-bottom: 1.25rem;">SAC vs. JoSEPi (Ours) across four environments</p> -->
+    <h2 class="title is-3 has-text-centered">Dexterous Manipulation</h2>
 
-    <!-- Replace src paths below with the real videos, e.g.:
-         SAC:    ./static/videos/sac_env{1-4}.mp4
-         JoSEPi: ./static/videos/josepi_env{1-4}.mp4     -->
-
-    <div style="display: flex; justify-content: center; gap: 0.4rem; margin-bottom: 2rem;">
-      <video autoplay muted loop playsinline style="width: 250px; border-radius:6px; display:block;">
-        <source src="./static/videos/CustomMyoChallengeBaodingP1-v1_JoSEPi_1each_q3_mean0.859.mp4" type="video/mp4">
-      </video>
-      <video autoplay muted loop playsinline style="width: 250px; border-radius:6px; display:block;">
-        <source src="./static/videos/CustomMyoChallengeDieReorientP2-v0_JoSEPi_1each_q3_mean0.610.mp4" type="video/mp4">
-      </video>
-      <video autoplay muted loop playsinline style="width: 250px; border-radius:6px; display:block;">
-        <source src="./static/videos/myoHandKeyTurnRandom-v0_JoSEPi_1each_q3_mean0.808.mp4" type="video/mp4">
-      </video>
-      <video autoplay muted loop playsinline style="width: 250px; border-radius:6px; display:block;">
-        <source src="./static/videos/myoHandPenTwirlRandom-v0_JoSEPi_1each_q3_mean0.766.mp4" type="video/mp4">
-      </video>
+    <div class="content has-text-justified" style="max-width: 760px; margin: 0 auto 2rem;">
+      <p>
+        On contact-rich manipulation tasks, 
+        <!-- policies supported on JoSE-optimized manifolds  -->
+        our policies
+        outperform baselines that either use alternative objectives to coordinate actuators or perform policy search in the full high-dimensional action space.
+        <!-- We train our policies on contact-rich dexterous manipulation tasks using model-free RL. -->
+        <!-- We evaluate JoSEPi on contact-rich dexterous manipulation tasks on both a musculoskeletal model of the human hand (MyoHand) and a tendon-driven robotic hand (Adroit). -->
+        <!-- Across both platforms, policies built on the JoSE manifold learn faster, reach higher asymptotic performance, and generalize better to unseen objects than strong baselines. -->
+         <!-- Across both platforms, policies built on the JoSE manifold learn faster, reach higher asymptotic performance, and generalize better to unseen objects than strong baselines. -->
+      </p>
     </div>
 
-    <h2 class="title is-3 has-text-centered">Adroit</h2>
-    <!-- <p class="subtitle has-text-centered" style="margin-bottom: 1.25rem;">SAC vs. JoSEPi (Ours) across four environments</p> -->
+    <h2 class="title is-5 has-text-centered" style="margin-bottom: 0.25rem;">Musculoskeletal Hand</h2>
+    <p class="has-text-centered" style="color: #888; margin-bottom: 1.25rem;">We learn a 15-dimensional, state-dependent action manifold to coordinate the 39 muscle-tendon units of the MyoHand</p>
 
-    <!-- Replace src paths below with the real videos, e.g.:
-         SAC:    ./static/videos/sac_env{1-4}.mp4
-         JoSEPi: ./static/videos/josepi_env{1-4}.mp4     -->
+    <div style="display: flex; justify-content: center; gap: 0.6rem; margin-bottom: 2.5rem;">
+      <div style="width: 250px; text-align: center;">
+        <video autoplay muted loop playsinline style="width: 250px; border-radius:6px; display:block;">
+          <source src="./static/videos/CustomMyoChallengeBaodingP1-v1_JoSEPi_1each_q3_mean0.859.mp4" type="video/mp4">
+        </video>
+        <p style="margin-top: 0.4rem; font-size: 0.9rem; color: #555;">BaodingBalls</p>
+      </div>
+      <div style="width: 250px; text-align: center;">
+        <video autoplay muted loop playsinline style="width: 250px; border-radius:6px; display:block;">
+          <source src="./static/videos/CustomMyoChallengeDieReorientP2-v0_JoSEPi_1each_q3_mean0.610.mp4" type="video/mp4">
+        </video>
+        <p style="margin-top: 0.4rem; font-size: 0.9rem; color: #555;">DieReorient</p>
+      </div>
+      <div style="width: 250px; text-align: center;">
+        <video autoplay muted loop playsinline style="width: 250px; border-radius:6px; display:block;">
+          <source src="./static/videos/myoHandKeyTurnRandom-v0_JoSEPi_1each_q3_mean0.808.mp4" type="video/mp4">
+        </video>
+        <p style="margin-top: 0.4rem; font-size: 0.9rem; color: #555;">KeyTurn</p>
+      </div>
+      <div style="width: 250px; text-align: center;">
+        <video autoplay muted loop playsinline style="width: 250px; border-radius:6px; display:block;">
+          <source src="./static/videos/myoHandPenTwirlRandom-v0_JoSEPi_1each_q3_mean0.766.mp4" type="video/mp4">
+        </video>
+        <p style="margin-top: 0.4rem; font-size: 0.9rem; color: #555;">PenTwirl</p>
+      </div>
+    </div>
 
-        <div style="display: flex; justify-content: center; gap: 0.4rem; margin-bottom: 2rem;">
-      <video autoplay muted loop playsinline style="width: 250px; border-radius:6px; display:block;">
-        <source src="./static/videos/CustomAdroitBaodingP1-v1_JoSEPi_1each_q3_mean0.945.mp4" type="video/mp4">
-      </video>
-      <video autoplay muted loop playsinline style="width: 250px; border-radius:6px; display:block;">
-        <source src="./static/videos/CustomAdroitDieReorientP2-v0_JoSEPi_1each_q3_mean0.814.mp4" type="video/mp4">
-      </video>
-      <video autoplay muted loop playsinline style="width: 250px; border-radius:6px; display:block;">
-        <source src="./static/videos/CustomAdroitKeyTurnRandom-v0_JoSEPi_1each_q3_mean0.576.mp4" type="video/mp4">
-      </video>
-      <video autoplay muted loop playsinline style="width: 250px; border-radius:6px; display:block;">
-        <source src="./static/videos/CustomAdroitPenTwirlRandom-v0_JoSEPi_1each_q3_mean0.663.mp4" type="video/mp4">
-      </video>
+    <h2 class="title is-5 has-text-centered" style="margin-bottom: 0.25rem;">Tendon-Driven Robotic Hand</h2>
+    <p class="has-text-centered" style="color: #888; margin-bottom: 1.25rem;">We learn a 15-dimensional, state-dependent action manifold to coordinate the 42 tendon actuators of the Adroit hand</p>
+
+    <div style="display: flex; justify-content: center; gap: 0.6rem; margin-bottom: 2rem;">
+      <div style="width: 250px; text-align: center;">
+        <video autoplay muted loop playsinline style="width: 250px; border-radius:6px; display:block;">
+          <source src="./static/videos/CustomAdroitBaodingP1-v1_JoSEPi_1each_q3_mean0.945.mp4" type="video/mp4">
+        </video>
+        <p style="margin-top: 0.4rem; font-size: 0.9rem; color: #555;">BaodingBalls</p>
+      </div>
+      <div style="width: 250px; text-align: center;">
+        <video autoplay muted loop playsinline style="width: 250px; border-radius:6px; display:block;">
+          <source src="./static/videos/CustomAdroitDieReorientP2-v0_JoSEPi_1each_q3_mean0.814.mp4" type="video/mp4">
+        </video>
+        <p style="margin-top: 0.4rem; font-size: 0.9rem; color: #555;">DieReorient</p>
+      </div>
+      <div style="width: 250px; text-align: center;">
+        <video autoplay muted loop playsinline style="width: 250px; border-radius:6px; display:block;">
+          <source src="./static/videos/CustomAdroitKeyTurnRandom-v0_JoSEPi_1each_q3_mean0.576.mp4" type="video/mp4">
+        </video>
+        <p style="margin-top: 0.4rem; font-size: 0.9rem; color: #555;">KeyTurn</p>
+      </div>
+      <div style="width: 250px; text-align: center;">
+        <video autoplay muted loop playsinline style="width: 250px; border-radius:6px; display:block;">
+          <source src="./static/videos/CustomAdroitPenTwirlRandom-v0_JoSEPi_1each_q3_mean0.663.mp4" type="video/mp4">
+        </video>
+        <p style="margin-top: 0.4rem; font-size: 0.9rem; color: #555;">PenTwirl</p>
+      </div>
     </div>
 
     <!-- JoSEPi row: label in left 1fr, videos centered, right 1fr keeps symmetry -->
@@ -341,11 +499,13 @@
       </a>
     </div>
 
-    <div class="content has-text-justified" style="max-width: 700px; margin: 0 auto 2.5rem;">
+    <div class="content has-text-justified" style="max-width: 760px; margin: 0 auto 2.5rem;">
       <p>
         Our team, Muscle Heads, achieved first place in the Manipulation Track of <a href="https://neurips.cc/Conferences/2024/CompetitionTrack">NeurIPS 2024 MyoChallenge</a>.
-        The challenge involved controlling a realistic arm with 63 muscles and a prosthetic arm with 17 DoFs to transfer objects between pillars.
-        We used our empowerment-based objective to learn a low-dimensional action manifold, demonstrating that the method scales to higher-dimensional systems.
+        The challenge involved controlling a realistic human arm (27 DoF) and a prosthetic arm (17 DoF) to transfer objects between pillars.
+        <!-- Using our precoding framework, we learned a low-dimensional action manifold to coordinate the 63 muscle-tendon units of the human arm, demonstrating that our method scales well with action-space dimensionality. -->
+        Using our empowerment-based objective, we learned a 9-dimensional state-dependent, action manifold to coordinate the 63 muscle-tendon units of the human arm, demonstrating that the method scales to higher dimensional state-action spaces.
+        <!-- high-dimensional whole-arm control. -->
       </p>
     </div>
     <div style="display: flex; justify-content: center;">
