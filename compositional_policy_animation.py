@@ -211,13 +211,13 @@ def add_axes_arrows(ax, length=2.5, z_offset=0, alpha=1.0):
     o = [0, 0, z_offset]
     kw = dict(arrow_length_ratio=0.0, linewidth=lw, alpha=0.8 * alpha)
     ax.quiver(*o, 0, 0, length * 1.4, color="black", **kw)
-    ax.text(o[0], o[1], o[2] + length * 1.4 + 0.4, "muscle $M$",
+    ax.text(o[0], o[1], o[2] + length * 1.4 + 0.4, "action $M$",
             fontsize=FONT_AXIS_LABEL, ha="center", alpha=alpha)
     ax.quiver(*o, length, 0, 0, color="black", **kw)
-    ax.text(o[0] + length + 0.4, o[1], o[2] - 0.4, "muscle 2",
+    ax.text(o[0] + length + 0.4, o[1], o[2] - 0.4, "action 2",
             fontsize=FONT_AXIS_LABEL, ha="center", alpha=alpha)
     ax.quiver(*o, 0, -length, 0, color="black", **kw)
-    ax.text(o[0], o[1] - length - 0.4, o[2] - 0.4, "muscle 1",
+    ax.text(o[0], o[1] - length - 0.4, o[2] - 0.4, "action 1",
             fontsize=FONT_AXIS_LABEL, ha="center", alpha=alpha)
 
 def draw_left(ax, Z, alpha=1.0, plane_alpha=1.0, label_alpha=0.0):
@@ -590,7 +590,7 @@ def render_title_frame(text, fig_w, fig_h, dpi, fontsize=INTRO_FONTSIZE, y_frac=
     return img
 
 
-def main(dpi=REF_DPI, out_name="compositional_policy_animation.mp4", include_exploration=False):
+def main(dpi=REF_DPI, out_name="manifold_policy_animation.mp4", include_exploration=False):
     FIG_W, FIG_H, DPI = 20, 6, dpi
     crop = scaled_crop(DPI)
     crop_x0, crop_y0, crop_w, crop_h = crop
