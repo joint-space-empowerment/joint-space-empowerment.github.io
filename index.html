@@ -260,8 +260,8 @@
       </p>
 
       <p>
-        We parameterize a manifold as a state-dependent precoder that maps a low-dimensional latent action into a high-dimensional action.
-        Thus, we formalize manifold discovery as an optimal precoding problem.
+        We parameterize a manifold as a state-dependent precoder that maps a low-dimensional latent action into a high-dimensional action
+        and formalize manifold discovery as an optimal precoding problem.
       </p>
     </div>
 
@@ -307,10 +307,10 @@ the precoder, transition kernel and decoder. -->
     </div>
     <p style="max-width: 760px; margin: 0 auto 2.5rem; color: #777; font-size: 0.9rem; text-align: justify;">
       In the optimal precoding framework, motor coordination is viewed as a communication problem involving a sender, a noisy communication channel, and a receiver.
-      At each time step, the sender transmits a latent action.
-      This is sent over the communication channel and received at the next time step as the next joint velocities. 
-      The channel is composed of the precoder, the state transition probabilities and a joint-space decoder that reads out joint velocities from the full state.
-      Because the precoder has learnable parameters, &theta;, the communication channel is adaptable.
+      At each time step, the sender transmits a latent action, which
+      is sent over the communication channel and received at the next time step as the next joint velocities. 
+      The communication channel is composed of the precoder, the state transition probabilities and a joint-space decoder that reads out joint velocities from the full state.
+      Because the precoder has learnable parameters &theta;, the communication channel is adaptable.
     </p>
 
     <!-- <p> -->
@@ -318,11 +318,11 @@ the precoder, transition kernel and decoder. -->
 
     <div style="display: flex; justify-content: center; margin-bottom: 2.5rem;">
       <div style="background:#f7f8fa; border:1px solid #e5e5e5; border-radius:12px; padding: 1.5rem 2.5rem; text-align:center; max-width: 90%;">
-        <p style="font-weight: 600; margin-bottom: 1rem; color: #333;">Definition 1 (Joint-Space Empowerment)</p>
+        <p style="font-weight: 600; margin-bottom: 1rem; color: #333;">Definition (Joint-Space Empowerment)</p>
         <img src="./static/images/empowerment_mathematical_defintion.png" style="max-width: 290px; width: 100%;">
         <p class="has-text-justified" style="margin-top: 1.25rem; color: #555; font-size: 0.95rem; max-width: 682px;">
           We introduce Joint-Space Empowerment (JoSE)—a novel objective that quantifies how much control an agent has over its mechanical degrees of freedom.
-          Formally, JoSE is the largest mutual information, over all latent action distributions, between the latent action and the next joint velocities in a state (i..e, the capacity of the communication channel).
+          Formally, for any state, JoSE is the largest mutual information, over all latent action distributions, between the latent action and the next joint velocities (i..e, the capacity of the communication channel).
           <!-- JoSE is high when an agent can achieve a wide diversity of joint motions in a reliable manner. -->
           Our goal is to learn the precoder that maximizes JoSE.
         </p>
@@ -337,8 +337,8 @@ the precoder, transition kernel and decoder. -->
         <!-- An action manifold inherently restricts the action space, retaining a subset of control inputs while discarding the rest. -->
         <!-- The JoSE-optimal manifold retains actions that produce unique joint motions, eliminating behavioral redundancy. -->
         A low-dimensional action manifold necessarily prunes the action space, retaining some actions while discarding the rest.
-        The JoSE objective performs this pruning by selecting actions that produce unique joint motions, thereby eliminating behavioral redundancy.
-        Intuitively, if multiple actions produce, on average, the same joint motion, JoSE selects the action that achieves this outcome most reliably (i.e. with the least variance due to dynamics noise).
+        The JoSE objective prunes by retaining actions that produce unique joint motions, thereby eliminating behavioral redundancy.
+        Intuitively, if multiple actions produce the same joint motion on average, JoSE selects the action that does so most reliably (i.e. with the least variance due to dynamics noise).
       </p>
     </div>
 
@@ -348,11 +348,11 @@ the precoder, transition kernel and decoder. -->
     <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2.5rem; max-width: 760px; margin: 0 auto 1.75rem;">
       <div style="flex: 1 1 320px; border-top: 2px solid #3273dc; padding-top: 0.75rem;">
         <p style="font-weight:600; color:#333; margin-bottom:0.35rem;">Task-Agnostic Action Manifolds</p>
-        <p style="color:#555; font-size:0.95rem; text-align:justify; margin:0;">JoSE is fully specified by the precoder, dynamics and joint-space decoder, with no dependence on task knowledge or rewards. JoSE-optimized manifolds are therefore task-agnostic.</p>
+        <p style="color:#555; font-size:0.95rem; text-align:justify; margin:0;">JoSE is fully specified by the precoder, system dynamics and joint-space decoder, with no dependence on task information or rewards. JoSE-optimized manifolds are therefore task-agnostic, aiding generalization.</p>
       </div>
       <div style="flex: 1 1 320px; border-top: 2px solid #3273dc; padding-top: 0.75rem;">
         <p style="font-weight:600; color:#333; margin-bottom:0.35rem;">Closed-Form Solution</p>
-        <p style="color:#555; font-size:0.95rem; text-align:justify; margin:0;">Under a control-affine Gaussian model of tendon-driven dynamics, we derive the optimal manifold (a state-dependent linear subspace) in closed form.</p>
+        <p style="color:#555; font-size:0.95rem; text-align:justify; margin:0;">Under a control-affine Gaussian model of tendon-driven dynamics, we derive a closed-form solution to the optimal manifold (a state-dependent linear subspace).</p>
       </div>
     </div>
 
@@ -399,8 +399,8 @@ the precoder, transition kernel and decoder. -->
       <p>
         <!-- On contact-rich manipulation tasks,  -->
         <!-- policies supported on JoSE-optimized manifolds  -->
-        Our compositional manifold policies are able to learn complex contact-rich manipulation skills,
-        outperforming baselines that either use alternative objectives to coordinate actuators or perform policy search in the full action space.
+        Our compositional manifold policies learn complex contact-rich manipulation skills,
+        outperforming baselines that either coordinate actuators using alternative objectives or perform policy search in the full high-dimensional action space.
         <!-- We train our policies on contact-rich dexterous manipulation tasks using model-free RL. -->
         <!-- We evaluate JoSEPi on contact-rich dexterous manipulation tasks on both a musculoskeletal model of the human hand (MyoHand) and a tendon-driven robotic hand (Adroit). -->
         <!-- Across both platforms, policies built on the JoSE manifold learn faster, reach higher asymptotic performance, and generalize better to unseen objects than strong baselines. -->
@@ -530,9 +530,9 @@ the precoder, transition kernel and decoder. -->
     <div class="content has-text-justified" style="max-width: 760px; margin: 0 auto 2.5rem;">
       <p>
         Our team, Muscle Heads, achieved first place in the Manipulation Track of <a href="https://neurips.cc/Conferences/2024/CompetitionTrack">NeurIPS 2024 MyoChallenge</a>.
-        The challenge involved controlling a realistic human arm (27 DoF) and a prosthetic arm (17 DoF) to transfer objects between pillars.
+        The challenge involved controlling a realistic model of a human arm (27 DoF) and a prosthetic arm (17 DoF) to transfer objects between pillars.
         <!-- Using our precoding framework, we learned a low-dimensional action manifold to coordinate the 63 muscle-tendon units of the human arm, demonstrating that our method scales well with action-space dimensionality. -->
-        Using our empowerment-based objective, we coordinated the 63 muscle-tendon units of the human arm by learning a 9-dimensional state-dependent action manifold, demonstrating that the method scales to higher dimensional state-action spaces.
+        Using our empowerment-based objective, the 63 muscle-tendon units of the human arm were coordinated via a 9-dimensional state-dependent action manifold, demonstrating that the method scales to higher dimensional state-action spaces.
         <!-- high-dimensional whole-arm control. -->
       </p>
     </div>
