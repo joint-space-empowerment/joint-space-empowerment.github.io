@@ -337,7 +337,7 @@ the precoder, transition kernel and decoder. -->
         <!-- An action manifold inherently restricts the action space, retaining a subset of control inputs while discarding the rest. -->
         <!-- The JoSE-optimal manifold retains actions that produce unique joint motions, eliminating behavioral redundancy. -->
         A low-dimensional action manifold necessarily prunes the action space, retaining some actions while discarding the rest.
-        The JoSE objective prunes by retaining actions that produce unique joint motions, thereby eliminating behavioral redundancy.
+        The JoSE objective performs this pruning by retaining actions that produce unique joint motions, thereby eliminating behavioral redundancy.
         Intuitively, if multiple actions produce the same joint motion on average, JoSE selects the action that does so most reliably (i.e. with the least variance due to dynamics noise).
       </p>
     </div>
@@ -348,7 +348,7 @@ the precoder, transition kernel and decoder. -->
     <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2.5rem; max-width: 760px; margin: 0 auto 1.75rem;">
       <div style="flex: 1 1 320px; border-top: 2px solid #3273dc; padding-top: 0.75rem;">
         <p style="font-weight:600; color:#333; margin-bottom:0.35rem;">Task-Agnostic Action Manifolds</p>
-        <p style="color:#555; font-size:0.95rem; text-align:justify; margin:0;">JoSE is fully specified by the precoder, system dynamics and joint-space decoder, with no dependence on task information or rewards. JoSE-optimized manifolds are therefore task-agnostic, aiding generalization.</p>
+        <p style="color:#555; font-size:0.95rem; text-align:justify; margin:0;">JoSE is fully specified by the precoder, system dynamics and joint-space decoder, with no dependence on task information or rewards. JoSE-optimized manifolds are therefore task-agnostic.</p>
       </div>
       <div style="flex: 1 1 320px; border-top: 2px solid #3273dc; padding-top: 0.75rem;">
         <p style="font-weight:600; color:#333; margin-bottom:0.35rem;">Closed-Form Solution</p>
@@ -532,7 +532,7 @@ the precoder, transition kernel and decoder. -->
         Our team, Muscle Heads, achieved first place in the Manipulation Track of <a href="https://neurips.cc/Conferences/2024/CompetitionTrack">NeurIPS 2024 MyoChallenge</a>.
         The challenge involved controlling a realistic model of a human arm (27 DoF) and a prosthetic arm (17 DoF) to transfer objects between pillars.
         <!-- Using our precoding framework, we learned a low-dimensional action manifold to coordinate the 63 muscle-tendon units of the human arm, demonstrating that our method scales well with action-space dimensionality. -->
-        Using our empowerment-based objective, the 63 muscle-tendon units of the human arm were coordinated via a 9-dimensional state-dependent action manifold, demonstrating that the method scales to higher dimensional state-action spaces.
+        Using our empowerment-based objective, we coordinated the 63 muscle-tendon units of the human arm by learning a 9-dimensional state-dependent action manifold, demonstrating that the method scales to higher dimensional state-action spaces.
         <!-- high-dimensional whole-arm control. -->
       </p>
     </div>
