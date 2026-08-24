@@ -339,7 +339,7 @@ the precoder, transition kernel and decoder. -->
         A low-dimensional action manifold necessarily prunes the action space.
         <!-- , retaining some actions while discarding the rest. -->
         The JoSE objective performs this pruning by retaining actions that produce unique joint motions, thereby eliminating behavioral redundancy.
-        Intuitively, if multiple actions produce the same joint motion on average, JoSE selects the one that does so most reliably (i.e. with the least variance due to dynamics noise).
+        Intuitively, if multiple actions produce the same joint motion on average, JoSE selects the action that does so most reliably (i.e. with the least variance due to dynamics noise).
       </p>
     </div>
 
@@ -373,7 +373,7 @@ the precoder, transition kernel and decoder. -->
         <!-- By eliminating redundant actions, JoSE reduces the effective dimensionality of the action space. -->
         <!-- JoSE confines search to low-dimensional action manifold, thereby guiding exploration. -->
         <!-- JoSE provides an objective for optimizing a task-agnostic action manifold, but not yet a policy. -->
-        We exploit this by constructing policies supported on the manifold.
+        We exploit this structure by constructing policies supported on the manifold.
         <!-- compose the task-agnostic manifold with a task-specific base distribution over latent actions: -->
         <!-- An action is sampled from the policy by drawing a latent action from the base distribution and pushing it forward through the precoder onto the manifold. -->
         <!-- Because the underlying dynamics model is uncertain, so is the manifold &mdash; JoSEPi maintains this uncertainty and exploits it to drive exploration during training. -->
