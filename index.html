@@ -336,9 +336,10 @@ the precoder, transition kernel and decoder. -->
          <!-- The JoSE-optimal manifold discards redundant (off-manifold) actions. -->
         <!-- An action manifold inherently restricts the action space, retaining a subset of control inputs while discarding the rest. -->
         <!-- The JoSE-optimal manifold retains actions that produce unique joint motions, eliminating behavioral redundancy. -->
-        A low-dimensional action manifold necessarily prunes the action space, retaining some actions while discarding the rest.
+        A low-dimensional action manifold necessarily prunes the action space.
+        <!-- , retaining some actions while discarding the rest. -->
         The JoSE objective performs this pruning by retaining actions that produce unique joint motions, thereby eliminating behavioral redundancy.
-        Intuitively, if multiple actions produce the same joint motion on average, JoSE selects the action that does so most reliably (i.e. with the least variance due to dynamics noise).
+        Intuitively, if multiple actions produce the same joint motion on average, JoSE selects the one that does so most reliably (i.e. with the least variance due to dynamics noise).
       </p>
     </div>
 
